@@ -26,14 +26,14 @@ log = logging.getLogger(__name__)
 
 bl_info = {
     "name": "Map Projection (bpyproj)",
-    "author": "Jeremy Castagno <jeremybyu@gmail.com>",
-    "version": (1, 0, 3),
+    "author": "Jeremy Castagno <jeremybyu@gmail.com> and Vladimir Elistratov",
+    "version": (1, 0, 4),
     "blender": (2, 80, 0),
     "location": "On the GUI panel of external import addons (e.g. blender-osm)",
     "description": "Specify a map projection for external import addons (e.g. blender-osm)",
     "warning": "",
-    "wiki_url": "https://github.com/JeremyBYU/bpyproj",
-    "tracker_url": "https://github.com/JeremyBYU/bpyproj/issues",
+    "wiki_url": "https://github.com/prochitecture/bpyproj",
+    "tracker_url": "https://github.com/prochitecture/bpyproj/issues",
     "support": "COMMUNITY",
     "category": "Import-Export",
 }
@@ -106,7 +106,7 @@ class PyprojProperties(bpy.types.PropertyGroup):
     """Specifies global properties available for this module
     """
 
-    proj_type = bpy.props.EnumProperty(
+    proj_type: bpy.props.EnumProperty(
         name="Specify Projection",
         items=(
             ("srid", "SRID",
@@ -117,12 +117,12 @@ class PyprojProperties(bpy.types.PropertyGroup):
         description="Specify Projection with SRID or Proj4 parameter string ",
         default="srid"
     )
-    srid = bpy.props.StringProperty(
+    srid: bpy.props.StringProperty(
         name="SRID",
         description="Spatial Reference System ID (e.g. EPSG:3857)",
         default=''
     )
-    proj_params = bpy.props.StringProperty(
+    proj_params: bpy.props.StringProperty(
         name="Proj4 Parameters",
         description="Proj4 Projection Parameters",
         default=''
